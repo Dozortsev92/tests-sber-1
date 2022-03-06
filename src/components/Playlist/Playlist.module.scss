@@ -1,0 +1,40 @@
+$width-id: 40px;
+$width-name: 250px;
+$width-row: $width-id + $width-name;
+$height-row: 40px;
+$color-lightgrey: #e5e5e5;
+
+%playlist__cell {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.playlist {
+	&__row {
+		display: flex;
+		border: 1px solid $color-lightgrey;
+		width: $width-row;
+		height: $height-row;
+	}
+	&__song {
+		&:nth-child(odd) {
+			background: $color-lightgrey;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	&__id {
+		width: $width-id;
+		@extend %playlist__cell;
+	}
+	&__name {
+		display: flex;
+		justify-content: space-between;
+		width: $width-name;
+		@extend %playlist__cell;
+	}
+}
